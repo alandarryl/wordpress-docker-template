@@ -7,7 +7,7 @@ services:
       - .env
     volumes:
       - db_data:/var/lib/mysql
-  
+
   wordpress:
     image: wordpress:latest
     container_name: wp_app
@@ -17,12 +17,12 @@ services:
     env_file:
       - .env
     volumes:
-      - ./wp_content:/var/www/html/wp
+      - ./wp-content:/var/www/html/wp-content
     depends_on:
       - db
-  
-  phpadmin:
-    image: phpadmin/phpadmin
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
     container_name: wp_pma
     restart: always
     ports:
